@@ -21,10 +21,12 @@ app.post('/login', (req, res) => {
   const password = '1234'
 
   if (req.body.username != username) {
+    res.statusCode = 400
     res.json({status: 'error, username not found'})
   }
 
   if (req.body.password != password) {
+    res.statusCode = 401
     res.json({status: 'error, wrong password'})
   }
 
